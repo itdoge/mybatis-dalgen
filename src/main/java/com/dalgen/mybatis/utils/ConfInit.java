@@ -20,18 +20,18 @@ public class ConfInit {
     /**
      * The constant BASE_PATH.
      */
-    public static final String  BASE_PATH           = ConfInit.class
-                                                            .getResource("")
-                                                            .getPath()
-                                                            .replace(
-                                                                    CmdUtil.class.getPackage()
-                                                                            .getName()
-                                                                            .replace(".", "/")
-                                                                            + "/", "");
-    private static final String NEED_COPY_CONFIG    = "dalgen/config/";
+    public static final String BASE_PATH = ConfInit.class
+            .getResource("")
+            .getPath()
+            .replace(
+                    CmdUtil.class.getPackage()
+                            .getName()
+                            .replace(".", "/")
+                            + "/", "");
+    private static final String NEED_COPY_CONFIG = "dalgen/config/";
     private static final String NEED_COPY_TEMPLATES = "dalgen/templates/";
 
-    private static DalgenMojo   dalgenMojo;
+    private static DalgenMojo dalgenMojo;
 
     public static void configInit(DalgenMojo dalgenMojo) throws MojoExecutionException,
             MojoFailureException {
@@ -47,14 +47,14 @@ public class ConfInit {
                     copyAndOverWriteFile(jarEntry.getName(),
                             new File(ConfInit.dalgenMojo.getTemplateDirectory().getAbsolutePath()
                                     + jarEntry.getName()
-                                            .substring(NEED_COPY_TEMPLATES.length() - 1)));
+                                    .substring(NEED_COPY_TEMPLATES.length() - 1)));
                 } else if (StringUtils.startsWithIgnoreCase(jarEntry.getName(), NEED_COPY_CONFIG)) {//复制配置文件
                     copyDalgenConfig(jarEntry);
                 }
 
             }
         } catch (IOException e) {
-            throw new MojoExecutionException("获取配置信息失败!请联系作者~~~~旺旺:bangis",e);
+            throw new MojoExecutionException("获取配置信息失败!请联系作者~~~~旺旺:bangis", e);
         }
 
     }
@@ -91,7 +91,7 @@ public class ConfInit {
      * Copy and over write file.
      *
      * @param soureName the soure name
-     * @param outFile the out file
+     * @param outFile   the out file
      * @throws IOException the io exception
      */
     private static void copyAndOverWriteFile(String soureName, File outFile) throws IOException {

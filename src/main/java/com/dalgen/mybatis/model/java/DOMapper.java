@@ -11,11 +11,10 @@ import java.util.List;
 public class DOMapper extends Base {
 
 
-
     /**
      * The Motheds.
      */
-    private List<DOMapperMethod> motheds     = Lists.newArrayList();
+    private List<DOMapperMethod> motheds = Lists.newArrayList();
 
 
     /**

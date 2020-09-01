@@ -11,15 +11,15 @@ public class Table {
     /**
      * The Sql name.
      */
-    private String       sqlName;
+    private String sqlName;
     /**
      * The Java name.
      */
-    private String       javaName;
+    private String javaName;
     /**
      * The Remark.
      */
-    private String       remark;
+    private String remark;
     /**
      * The Column list.
      */

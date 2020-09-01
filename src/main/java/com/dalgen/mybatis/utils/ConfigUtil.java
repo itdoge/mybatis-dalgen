@@ -19,7 +19,7 @@ public class ConfigUtil {
     /**
      * The constant config.
      */
-    private static Config config    = null;
+    private static Config config = null;
 
     /**
      * The constant currentDb.
@@ -28,9 +28,9 @@ public class ConfigUtil {
     /**
      * The constant cmd.
      */
-    private static String cmd       = null;
+    private static String cmd = null;
 
-    public static String  dalgenPath;
+    public static String dalgenPath;
 
     /**
      * Read config config.

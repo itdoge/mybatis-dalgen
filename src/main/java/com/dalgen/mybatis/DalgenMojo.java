@@ -38,7 +38,7 @@ public class DalgenMojo extends AbstractMojo {
     /**
      * The constant cmdUtil.
      */
-    private CmdUtil             cmdUtil           = new CmdUtil();
+    private CmdUtil cmdUtil = new CmdUtil();
 
     /**
      * Project instance, needed for attaching the build info file. Used to add
@@ -49,14 +49,14 @@ public class DalgenMojo extends AbstractMojo {
      * @readonly
      * @since 1.0
      */
-    private MavenProject        project;
+    private MavenProject project;
 
     /**
      * Location of the output files.
      *
      * @parameter default-value="src/"
      */
-    private File                outputDirectory;
+    private File outputDirectory;
 
     /**
      * Location of the FreeMarker template files.
@@ -65,23 +65,23 @@ public class DalgenMojo extends AbstractMojo {
      * @parameter default-value="${project.build.outputDirectory}/templates/"
      * @since 1.0
      */
-    private File                templateDirectory;
+    private File templateDirectory;
 
     /**
      * 配置文件
      *
      * @parameter default-value="dalgen/config/config.xml"
      */
-    private File                config;
+    private File config;
 
     /**
      * copyTemplate
      *
      * @parameter default-value=true
      */
-    private boolean             copyTemplate;
+    private boolean copyTemplate;
 
-    private boolean  testF = false;
+    private boolean testF = false;
 
     /**
      * Instantiates a new Dalgen mojo.
@@ -93,35 +93,37 @@ public class DalgenMojo extends AbstractMojo {
     /**
      * Instantiates a new Dalgen mojo. for Test
      *
-     * @param outputDirectory the output directory
+     * @param outputDirectory   the output directory
      * @param templateDirectory the template directory
-     * @param config the config
-     * @param project the project
+     * @param config            the config
+     * @param project           the project
      */
     public DalgenMojo(File outputDirectory, File templateDirectory, File config,
-                      MavenProject project,boolean testF) {
+                      MavenProject project, boolean testF) {
         this.outputDirectory = outputDirectory;
         this.templateDirectory = templateDirectory;
         this.config = config;
-        this.project =project;
-        this.testF =testF;
+        this.project = project;
+        this.testF = testF;
     }
 
     /**
      * Execute.
      *
      * @throws MojoExecutionException the mojo execution exception
-     * @throws MojoFailureException the mojo failure exception
+     * @throws MojoFailureException   the mojo failure exception
      */
     public void execute() throws MojoExecutionException, MojoFailureException {
 
         configInit(false);
 
+        // 输出目录不存在,创建输出目录
         if (!outputDirectory.exists()) {
             outputDirectory.mkdirs();
         }
 
         try {
+            // 从config.xml中读取配置
             ConfigUtil.readConfig(config);
             String _cmd = cmdUtil.consoleInput();
             if ("q".equals(_cmd)) {
@@ -143,10 +145,10 @@ public class DalgenMojo extends AbstractMojo {
      * Config init.
      *
      * @throws MojoExecutionException the mojo execution exception
-     * @throws MojoFailureException the mojo failure exception
+     * @throws MojoFailureException   the mojo failure exception
      */
     private void configInit(boolean testF) throws MojoExecutionException, MojoFailureException {
-        if(testF){
+        if (testF) {
             return;
         }
         if (project == null) {
@@ -155,7 +157,7 @@ public class DalgenMojo extends AbstractMojo {
         }
 
         //复制模板
-        if(this.copyTemplate) {
+        if (this.copyTemplate) {
             getLog().info("初始化配置信息开始");
             ConfInit.configInit(this);
             getLog().info("初始化配置信息开始结束 - 请在dalgen/config/config.xml 中配置数据源");
@@ -166,15 +168,17 @@ public class DalgenMojo extends AbstractMojo {
     /**
      * Execute init.
      *
-     * @throws SettingException the setting exception
-     * @throws IOException the io exception
-     * @throws EvalException the eval exception
+     * @throws SettingException    the setting exception
+     * @throws IOException         the io exception
+     * @throws EvalException       the eval exception
      * @throws ProcessingException the processing exception
      */
     private void executeInit() throws SettingException, IOException, EvalException,
             ProcessingException {
         Settings settings = new Settings(new File("."));
+        // /Users/huangyan/IdeaProject3/mybatis-dalgen/target/classes/dalgen/templates
         settings.set(Settings.NAME_SOURCE_ROOT, templateDirectory.getAbsolutePath());
+        // /Users/huangyan/IdeaProject3/mybatis-dalgen/target/classes/dalgen
         settings.set(Settings.NAME_OUTPUT_ROOT, config.getParentFile().getParent());
         settings.set(Settings.NAME_OUTPUT_ENCODING, "UTF-8");
         settings.set(Settings.NAME_SOURCE_ENCODING, "UTF-8");
@@ -195,15 +199,17 @@ public class DalgenMojo extends AbstractMojo {
     /**
      * Execute gen.
      *
-     * @throws SettingException the setting exception
-     * @throws IOException the io exception
-     * @throws EvalException the eval exception
+     * @throws SettingException    the setting exception
+     * @throws IOException         the io exception
+     * @throws EvalException       the eval exception
      * @throws ProcessingException the processing exception
      */
     private void executeGen() throws SettingException, IOException, EvalException,
             ProcessingException {
         Settings settings = new Settings(new File("."));
+        // /Users/huangyan/IdeaProject3/mybatis-dalgen/target/classes/dalgen/templates
         settings.set(Settings.NAME_SOURCE_ROOT, templateDirectory.getAbsolutePath());
+        // /Users/huangyan/IdeaProject3/mybatis-dalgen/target/classes/out
         settings.set(Settings.NAME_OUTPUT_ROOT, outputDirectory.getAbsolutePath());
         settings.set(Settings.NAME_OUTPUT_ENCODING, "UTF-8");
         settings.set(Settings.NAME_SOURCE_ENCODING, "UTF-8");

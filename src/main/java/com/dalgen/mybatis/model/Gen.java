@@ -15,32 +15,32 @@ public class Gen {
     /**
      * table放在哪个目录中,默认是${dbName}Tables The Tables path.
      */
-    private String          tablesPath;
+    private String tablesPath;
 
     /**
      * The Dalgen root.
      */
-    private String          dalgenRoot;
+    private String dalgenRoot;
 
     /**
      * The Out root.
      */
-    private String          outRoot;
+    private String outRoot;
 
     /**
      * The Database name.
      */
-    private String          dataBaseName;
+    private String dataBaseName;
 
     /**
      * The Db type.
      */
-    private String          dbType;
+    private String dbType;
 
     /**
      * The Tables.
      */
-    private List<Table>     tables     = Lists.newArrayList();
+    private List<Table> tables = Lists.newArrayList();
 
     /**
      * The Result maps.
@@ -50,17 +50,17 @@ public class Gen {
     /**
      * The Dos.
      */
-    private List<DO>        dos        = Lists.newArrayList();
+    private List<DO> dos = Lists.newArrayList();
 
     /**
      * The Daos.
      */
-    private List<DAO>       daos       = Lists.newArrayList();
+    private List<DAO> daos = Lists.newArrayList();
 
     /**
      * The Do mappers.
      */
-    private List<DOMapper>  doMappers  = Lists.newArrayList();
+    private List<DOMapper> doMappers = Lists.newArrayList();
 
     /**
      * The Xml mappers.
@@ -70,7 +70,7 @@ public class Gen {
     /**
      * The Pagings.
      */
-    private List<Paging>    pagings    = Lists.newArrayList();
+    private List<Paging> pagings = Lists.newArrayList();
 
     /**
      * Gets tables path.

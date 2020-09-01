@@ -32,17 +32,17 @@ public class CfTableRepository {
     /**
      * The constant PARAM_PATTERN.
      */
-    private static final Pattern PARAM_PATTERN           = Pattern.compile("#\\{(.*?)\\}");
+    private static final Pattern PARAM_PATTERN = Pattern.compile("#\\{(.*?)\\}");
 
     /**
      * The constant STAR_BRACKET. 将 select * from 替换的正则
      */
-    private static final Pattern STAR_BRACKET            = Pattern.compile("\\((\\s*\\*\\s*)\\)");
+    private static final Pattern STAR_BRACKET = Pattern.compile("\\((\\s*\\*\\s*)\\)");
 
     /**
      * 匹配?参数
      */
-    private static final Pattern QUESTION_MARK_PATTERN   = Pattern.compile("\\w+\\s*=\\s*\\?");
+    private static final Pattern QUESTION_MARK_PATTERN = Pattern.compile("\\w+\\s*=\\s*\\?");
     /**
      * 从?参数中获取 column参数
      */
@@ -51,21 +51,22 @@ public class CfTableRepository {
     /**
      * The constant FOR_DESC_SQL_P. 为mapper.java的方法准备注释
      */
-    private static final String  FOR_DESC_SQL_P          = "\\s*<.*>\\s*";
+    private static final String FOR_DESC_SQL_P = "\\s*<.*>\\s*";
     /**
      * The constant FOR_DESC_SQL_PN.
      */
-    private static final String  FOR_DESC_SQL_PN         = "\\s{2,}";
+    private static final String FOR_DESC_SQL_PN = "\\s{2,}";
 
     /**
      * The constant ORDER_BY_PATTERN.
      */
-    private static final String  ORDER_BY_PATTERN        = "[o|O][r|R][d|D][e|E][r|R]\\s+[b|B][y|Y]\\s+";
+    private static final String ORDER_BY_PATTERN = "[o|O][r|R][d|D][e|E][r|R]\\s+[b|B][y|Y]\\s+";
     /**
      * The constant SELECT_FROM_PATTERN.
      * 正则表达式,贪婪匹配,勉强匹配  .* 贪婪    .*? 勉强,之匹配最近一个
      */
-    private static final Pattern SELECT_FROM_PATTERN            = Pattern.compile("[s|S][e|E][l|L][e|E][c|C][t|T]\\s+[\\s\\S]*?\\s+[f|F][r|R][o|O][m|M]");
+    private static final Pattern SELECT_FROM_PATTERN = Pattern.compile("[s|S][e|E][l|L][e|E][c|C][t|T]\\s+[\\s\\S]*?\\s+[f|F][r|R][o|O][m|M]");
+
     /**
      * Gain cf table cf table.
      *
@@ -100,7 +101,7 @@ public class CfTableRepository {
      * Fill result map.
      *
      * @param cfTable the cf table
-     * @param table the table
+     * @param table   the table
      */
     private void fillResultMap(CfTable cfTable, Element table) {
         List<Element> elements = table.elements("resultmap");
@@ -127,7 +128,7 @@ public class CfTableRepository {
      * Fill operation.
      *
      * @param cfTable the cf table
-     * @param table the table
+     * @param table   the table
      */
     private void fillOperation(CfTable cfTable, Element table) {
         List<Element> elements = table.elements("operation");
@@ -158,8 +159,8 @@ public class CfTableRepository {
     /**
      * Sets cf operation cdata.
      *
-     * @param cfTable the cf table
-     * @param e the e
+     * @param cfTable     the cf table
+     * @param e           the e
      * @param cfOperation the cf operation
      */
     private void setCfOperationCdata(CfTable cfTable, Element e, CfOperation cfOperation) {
@@ -196,7 +197,7 @@ public class CfTableRepository {
 
     /**
      * ? 参数替换
-     * 
+     *
      * @param cdata
      * @param cfOperation
      * @param cfTable
@@ -264,7 +265,7 @@ public class CfTableRepository {
     /**
      * Sets cf operation page cdata.
      *
-     * @param cdata the cdata
+     * @param cdata       the cdata
      * @param cfOperation the cf operation
      */
     private void setCfOperationPageCdata(String cdata, CfOperation cfOperation) {
@@ -273,7 +274,7 @@ public class CfTableRepository {
 
             String forCount = cdata;
             Matcher selectFromMather = SELECT_FROM_PATTERN.matcher(cdata);
-            if(selectFromMather.find()){
+            if (selectFromMather.find()) {
                 forCount = selectFromMather.replaceFirst("SELECT\n          COUNT(*) AS total \n        FROM\n");
             }
 
@@ -292,8 +293,8 @@ public class CfTableRepository {
     /**
      * Add sql annotation string.
      *
-     * @param cdata the cdata
-     * @param oName the o name
+     * @param cdata  the cdata
+     * @param oName  the o name
      * @param tbName the tb name
      * @return the string
      */
@@ -337,7 +338,7 @@ public class CfTableRepository {
     /**
      * Fill operation params. 原生态参数获取 添加List参数支持
      *
-     * @param e the e
+     * @param e           the e
      * @param cfOperation the cf operation
      */
     private void fillOperationParams(Element e, CfOperation cfOperation) {
@@ -401,7 +402,7 @@ public class CfTableRepository {
      * Fill columns.
      *
      * @param cfTable the cf table
-     * @param table the table
+     * @param table   the table
      */
     private void fillColumns(CfTable cfTable, Element table) {
 
@@ -419,7 +420,7 @@ public class CfTableRepository {
     /**
      * Attr string.
      *
-     * @param e the e
+     * @param e    the e
      * @param attr the attr
      * @return the string
      */
@@ -438,7 +439,7 @@ public class CfTableRepository {
     /**
      * Attr string.
      *
-     * @param e the e
+     * @param e    the e
      * @param attr the attr
      * @return the string
      */

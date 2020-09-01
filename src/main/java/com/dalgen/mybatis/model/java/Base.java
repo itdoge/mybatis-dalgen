@@ -12,27 +12,27 @@ public class Base {
     /**
      * The Class name.
      */
-    private String       className;
+    private String className;
 
     /**
      * The Desc.
      */
-    private String       desc;
+    private String desc;
 
     /**
      * The Package name.
      */
-    private String       packageName;
+    private String packageName;
 
     /**
      * The Class path.
      */
-    private String       classPath;
+    private String classPath;
 
     /**
      * The Table name.
      */
-    private String       tableName;
+    private String tableName;
 
     /**
      * The Import lists.

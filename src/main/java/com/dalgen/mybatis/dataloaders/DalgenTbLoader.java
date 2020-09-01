@@ -22,17 +22,17 @@ public class DalgenTbLoader extends AbstractDalgenLoader {
     /**
      * The constant LOG.
      */
-    private static final Log LOG             = new SystemStreamLog();
+    private static final Log LOG = new SystemStreamLog();
 
     /**
      * The Table repository.
      */
-    private TableRepository  tableRepository = new TableRepository();
+    private TableRepository tableRepository = new TableRepository();
 
     /**
      * Load.
      *
-     * @param gen the gen
+     * @param gen        the gen
      * @param connection the connection
      */
     @Override

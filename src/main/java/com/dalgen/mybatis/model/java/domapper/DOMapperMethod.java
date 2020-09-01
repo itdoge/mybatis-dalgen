@@ -13,35 +13,35 @@ public class DOMapperMethod implements Cloneable {
     /**
      * The Return class.
      */
-    private String                    returnClass;
+    private String returnClass;
     /**
      * The Name.
      */
-    private String                    name;
+    private String name;
 
     /**
      * The Paging name.
      */
-    private String                    pagingName;
+    private String pagingName;
 
     /**
      * The Desc.
      */
-    private String                    desc;
+    private String desc;
     /**
      * The Sql.
      */
-    private String                    sql;
+    private String sql;
 
     /**
      * The Is paging.
      */
-    private String                    pagingFlag = "false";
+    private String pagingFlag = "false";
 
     /**
      * The Params.
      */
-    private List<DOMapperMethodParam> params     = Lists.newArrayList();
+    private List<DOMapperMethodParam> params = Lists.newArrayList();
 
     /**
      * Gets return class.
@@ -109,7 +109,7 @@ public class DOMapperMethod implements Cloneable {
      * @param param the param
      */
     public void addParam(DOMapperMethodParam param) {
-        if(!this.params.contains(param)) {
+        if (!this.params.contains(param)) {
             this.params.add(param);
         }
     }

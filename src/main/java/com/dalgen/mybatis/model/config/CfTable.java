@@ -12,24 +12,24 @@ public class CfTable {
     /**
      * The Sqlname.
      */
-    private String            sqlname;
+    private String sqlname;
     /**
      * The Sequence.
      */
-    private String            sequence;
+    private String sequence;
     /**
      * The Physical name. 物理表名,分库分表使用
      */
-    private String            physicalName;
+    private String physicalName;
     /**
      * The Remark.
      */
-    private String            remark;
+    private String remark;
 
     /**
      * The Columns.
      */
-    private List<CfColumn>    columns    = Lists.newArrayList();
+    private List<CfColumn> columns = Lists.newArrayList();
     /**
      * The Result maps.
      */
@@ -43,7 +43,7 @@ public class CfTable {
     /**
      * The Db columns.
      */
-    private List<Column>      dbColumns  = Lists.newArrayList();
+    private List<Column> dbColumns = Lists.newArrayList();
 
     /**
      * Gets sqlname.

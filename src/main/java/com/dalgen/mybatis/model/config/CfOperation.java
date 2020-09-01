@@ -14,55 +14,55 @@ public class CfOperation {
     /**
      * The Name.
      */
-    private String              name;
+    private String name;
     /**
      * Paging param name
      */
-    private String              paging;
+    private String paging;
     /**
      * The Param type.
      */
-    private ParamTypeEnum       paramType;
+    private ParamTypeEnum paramType;
     /**
      * The Multiplicity.
      */
-    private MultiplicityEnum    multiplicity;
+    private MultiplicityEnum multiplicity;
     /**
      * The Remark.
      */
-    private String              remark;
+    private String remark;
     /**
      * The Resulttype.
      */
-    private String              resulttype;
+    private String resulttype;
     /**
      * The Resultmap.
      */
-    private String              resultmap;
+    private String resultmap;
     /**
      * The Timeout.
      */
-    private Long                timeout;
+    private Long timeout;
 
     /**
      * The Cdata.
      */
-    private String              cdata;
+    private String cdata;
 
     /**
      * The Cdata page count.
      */
-    private String              cdataPageCount;
+    private String cdataPageCount;
 
     /**
      * The Sql desc.
      */
-    private String              sqlDesc;
+    private String sqlDesc;
 
     /**
      * The Primitive params.
      */
-    private Map<String, String> primitiveParams        = Maps.newHashMap();
+    private Map<String, String> primitiveParams = Maps.newHashMap();
 
     /**
      * The Primitive foreach params.
@@ -266,9 +266,9 @@ public class CfOperation {
      * @param collName the coll name
      */
     public void addPrimitiveForeachParam(String itemName, String collName) {
-        if(this.primitiveForeachParams.containsKey(itemName)){
-            this.primitiveForeachParams.put(itemName+collName, collName);
-        }else {
+        if (this.primitiveForeachParams.containsKey(itemName)) {
+            this.primitiveForeachParams.put(itemName + collName, collName);
+        } else {
             this.primitiveForeachParams.put(itemName, collName);
         }
     }
